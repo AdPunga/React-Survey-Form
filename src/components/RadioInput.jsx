@@ -1,4 +1,4 @@
-const RadioInput = ({name, checked, value, onChange}) => {
+const RadioInput = ({name, checked, value, onChange, label}) => {
     return ( 
         <label>
             <input 
@@ -7,7 +7,7 @@ const RadioInput = ({name, checked, value, onChange}) => {
                 checked={checked}
                 value={value}
                 onChange={onChange}
-            /> {value}
+            /> {label}
         </label>
      );
 }
