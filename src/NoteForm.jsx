@@ -1,0 +1,83 @@
+import { useState } from "react";
+import TextInput from "./components/TextInput";
+import NumberInput from "./components/NumberInput";
+import SelectInput from "./components/SelectInput";
+import RadioGroup from "./components/RadioGroup";
+
+const NoteForm = () => {
+    const [formData, setFormData] = useState({
+        fullName: "",
+        age: "",
+        grade: "Junior",
+        reactExperience: ""
+    })
+
+    const handleChange = (e) => {
+        const {name, value} = e.target
+
+        setFormData(prevData => (
+            {
+                ...prevData,
+                [name] : value
+            }
+        ))
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
+
+    return ( 
+        <form onSubmit={handleSubmit}>
+            <TextInput 
+                label="Full Name"
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleChange}
+                required
+            />
+
+            <NumberInput 
+                label="Age"
+                name="age"
+                min="18"
+                max="99"
+                value={formData.age}
+                onChange={handleChange}
+                required
+            />
+
+            <SelectInput 
+                label="Grade"
+                name="grade"
+                value={formData.grade}
+                onChange={handleChange}
+                options={[
+                    {value: "Junior", label: "🟢 Junior"},
+                    {value: "Middle", label: "🟡 Middle"},
+                    {value: "Senior", label: "🔵 Senior"},
+                ]}
+                required
+            />
+
+            <RadioGroup 
+                legend="Have you worked with React before?"
+                name="reactExperience"
+                formData={formData}
+                options={[
+                    {value: "Yes", label: "Yes"},
+                    {value: "No", label: "No"},
+                ]}
+                onChange={handleChange}
+            />
+
+            <input 
+                type="submit"
+                className="w-full mt-4 p-1 bg-sky-400 text-white font-semibold rounded cursor-pointer transition hover:bg-sky-500"
+                value="Submit Note" 
+            />
+        </form>
+     );
+}
+ 
+export default NoteForm;
