@@ -2,9 +2,9 @@ const NoteList = ({notes, removeNote}) => {
     return ( 
         <div className="mt-5">
             {notes.map(note => (
-                <div className="flex justify-between items-start mt-3 p-3 bg-white rounded border border-gray-200" key={note.id}>
+                <div className="flex justify-between items-start mt-3 p-3 bg-white rounded border-l-3" key={note.id} style={{borderLeftColor: note.grade === "Junior" ? "green" : note.grade === "Middle" ? "salmon" : "dodgerBlue"}}>
                     <div>
-                        <h3 className="text-lg font-semibold">{note.fullName}</h3>
+                        <h3 className="text-xl font-bold">{note.fullName}</h3>
                         <div className="flex gap-2">
                             <p className="font-semibold text-slate-600">Age:</p>
                             <p>{note.age}</p>

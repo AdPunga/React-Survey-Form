@@ -48,7 +48,7 @@ const NoteForm = ({notes, setNotes}) => {
     return ( 
         <>
             <button
-                className="w-full mt-5 p-1 font-semibold border border-sky-500 rounded hover:bg-sky-100 transition"
+                className="w-full mt-5 p-1 font-semibold border border-indigo-500 rounded hover:bg-indigo-100 transition"
                 onClick={() => setIsFormVisible(!isFormVisible)}
             >{isFormVisible ? "✖️ Hide Form" : "➕ Add Note"}</button>
 
@@ -111,7 +111,7 @@ const NoteForm = ({notes, setNotes}) => {
 
                     <input 
                         type="submit"
-                        className="w-full mt-4 p-1 bg-sky-500 text-white font-semibold rounded cursor-pointer transition hover:bg-sky-600"
+                        className="w-full mt-4 p-1 bg-indigo-500 text-white font-semibold rounded cursor-pointer transition hover:bg-indigo-600"
                         value="Submit Note" 
                     />
                 </form>
