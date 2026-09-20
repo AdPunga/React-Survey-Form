@@ -4,9 +4,9 @@ import NoteList from "./NoteList";
 
 function App() {
   const [notes, setNotes] = useState(() => {
-    const notes = JSON.parse(localStorage.getItem("notes"));
+    const savedNotes = JSON.parse(localStorage.getItem("notes"));
 
-    return notes || [];
+    return savedNotes || [];
   });
 
   useEffect(() => {
